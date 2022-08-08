@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController as Home;
+use App\Http\Controllers\PostController as P;
 
 
 /*
@@ -19,3 +20,5 @@ Route::get('/', [Home::class, 'index'])->name('home');
 Route::view('/about', 'about')->name('about');
 
 Route::view('/contact', 'contact')->name('contact');
+
+Route::get('posts/{post}', [P::class, 'show'])->name('posts.show');
