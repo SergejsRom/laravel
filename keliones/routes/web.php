@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController as Country;
 use App\Http\Controllers\HotelController as Hotel;
 use App\Http\Controllers\OrderController as Order;
+use App\Http\Controllers\FrontController as Front;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('countries', Country::class);
+    Route::resource('hotels', Hotel::class);
+    Route::resource('orders', Order::class);
+    Route::resource('front', Front::class);
+});
 
-Route::resource('countries', Country::class);
-
-Route::resource('hotels', Hotel::class);
-
-Route::resource('orders', Order::class);
 

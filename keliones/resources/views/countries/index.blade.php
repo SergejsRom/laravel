@@ -17,11 +17,12 @@
                         </div>
                     @endif
                     <a class="btn btn-primary btn-lg" href="{{ route('countries.create') }}">ADD NEW DIRECTION</a>
+                    <h2 class="m-2 green fw-bolder">Choose your destination</h2>
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th>
-                                    Name
+                                    Country
                                 </th>
                                 <th>
                                     Season start
@@ -44,7 +45,7 @@
                                         {{$country->season_end}}
                                     </td>
                                     <td class="flex">
-                                        <a class="btn btn-success m-1" href="{{ route('countries.show', $country) }}">SHOW</a>
+                                        <a class="btn btn-success m-1" href="{{ route('countries.show', $country) }}">CHOOSE</a>
                                         <a class="btn btn-secondary m-1" href="{{ route('countries.edit', $country) }}">EDIT</a>
                                         <form action="{{ route('countries.destroy', $country) }}" method="post">
                                         @csrf

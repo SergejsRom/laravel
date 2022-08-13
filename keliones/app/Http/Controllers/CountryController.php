@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCountryRequest;
 use App\Http\Requests\UpdateCountryRequest;
 use App\Models\Country;
 use App\Models\Hotel;
+use App\Models\Order;
 use Validator;
 
 class CountryController extends Controller
@@ -17,7 +18,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = Country::all()->sortBy('country_name');;
+        $countries = Country::all()->sortBy('country_name');
         return view('countries.index', compact('countries'));
     }
 
@@ -55,10 +56,11 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
+        $orders = Order::all();
         $hotels = Hotel::all();
         $hotels->country_id = $country->id;
         $countries = Country::first();
-        return view('countries.show', compact('country', 'hotels'));
+        return view('countries.show', compact('country', 'hotels', 'orders'));
     }
     /*public function show(int $countryId)
     {

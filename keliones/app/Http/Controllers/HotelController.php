@@ -18,7 +18,7 @@ class HotelController extends Controller
     public function index()
     {
         $countries = Country::all();
-        $hotels = Hotel::all()->sortBy('hotel_name');;
+        $hotels = Hotel::all()->sortBy('hotel_name');
         return view('hotels.index', compact('hotels', 'countries'));
     }
 
