@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -53,7 +55,7 @@ class CartController extends Controller
 
             $this->calculateTotalCart($request);
 
-            return view('cart');
+            return redirect('cart');
 
         //if we do NOT have a cart in session
         }else{
@@ -86,7 +88,7 @@ class CartController extends Controller
 
                 $this->calculateTotalCart($request);
 
-                return view('cart');
+                return redirect('cart');
 
 
         }
@@ -129,7 +131,7 @@ class CartController extends Controller
             //recalculate total
             $this->calculateTotalCart($request);
         }
-        return view('cart');
+        return redirect('cart');
     }
 
     function edit_product_quantity(Request $request) {
@@ -168,7 +170,7 @@ class CartController extends Controller
             }
 
         }
-        return view('cart');
+        return redirect('cart');
 
     }
 
@@ -176,5 +178,72 @@ class CartController extends Controller
         return view ('checkout');
     }
 
+
+    function place_order(Request $request) {
+        if ($request->session()->has('cart')) {
+
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $phone = $request->input('phone');
+            $city = $request->input('city');
+            $address = $request->input('address');
+
+            $cost = $request->session()->get('total');
+            $status = 'not paid';
+            $date = date('Y-m-d');
+            $cart = $request->session()->get('cart');
+
+            if (Auth::check()) {
+
+                //user logged in
+                $user_id = Auth::id();
+            }else {
+                $user_id = 0;
+            }
+
+
+            $order_id =  DB::table('orders')->InsertGetId([
+
+                                'name'=> $name,
+                                'email'=>$email,
+                                'phone'=>$phone,
+                                'city'=>$city,
+                                'address'=>$address,
+                                'cost'=>$cost,
+                                'status'=>$status,
+                                'date'=>$date,
+                                'user_id' =>$user_id
+
+                        ], 'id'); //'id' will show whom belong the order
+
+            foreach ($cart as $id => $product) {
+                $product = $cart[$id];
+                $product_id = $product['id'];
+                $product_name = $product['name'];
+                $product_price = $product['price'];
+                $product_quantity = $product['quantity'];
+                $product_image = $product['image'];
+
+                DB::table('order_items')->insert([
+
+                        'order_id'=>$order_id,
+                        'product_id'=>$product_id,
+                        'product_name'=>$product_name,
+                        'product_price'=>$product_price,
+                        'product_quantity'=>$product_quantity,
+                        'product_image'=>$product_image,
+                        'order_date'=>$date,
+                        
+                ]);
+            }
+
+        $request->session()->put('order_id', $order_id);
+
+        return redirect('payment');
+
+        }else{
+            return redirect('/');
+        }
+    }
 
 }
