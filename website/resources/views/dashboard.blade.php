@@ -13,6 +13,9 @@
         @csrf
         <button type="submit" class="btn checkout-btn">Logout</button>
         </form>
+        <div>
+            <a href="{{ route('user_orders') }}" class="btn btn-danger">My orders</a>
+        </div>
     </div>  
 </section>
 

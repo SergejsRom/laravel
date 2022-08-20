@@ -8,32 +8,16 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Our Menu
+          Search please
         </h2>
       </div>
 
-      <ul class="filters_menu">
-        <a href="{{ route('products') }}/">
-          <li>All</li>
-        </a>
-        <a href="{{ route('specific_product', ['category'=>'burger']) }}">
-          <li>Burger</li>
-        </a>
-        <a href="{{ route('specific_product', ['category'=>'pizza']) }}">
-          <li>Pizza</li>
-        </a>
-        <a href="{{ route('specific_product', ['category'=>'pasta']) }}">
-          <li>Pasta</li>
-        </a>
-        <a href="{{ route('specific_product', ['category'=>'fries']) }}">
-          <li>Fries</li>
-        </a>
-        {{-- <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li> --}}
-      </ul>
+        <form action="{{ route('search_result') }}" method="post" class="d-flex m-5">
+          @csrf
+          <input type="text" name="keyword" class="form-control" required>
+          <button type="submit" class="btn btn-danger">Search</button>
+
+        </form>
 
       <div class="filters-content">
         <div class="row grid">

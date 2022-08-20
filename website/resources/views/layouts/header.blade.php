@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="{{ asset('images/favicon.png')}}" type="">
 
-  <title> calmandcode </title>
+  <title> My first website made with Lravel </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}" />
@@ -42,9 +42,9 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="{{ route('home') }}">
             <span>
-              calmandcode
+              My first website made with Lravel
             </span>
           </a>
 
@@ -55,19 +55,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="{{ route('products') }}">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="{{ route('about') }}">About</a>
               </li>
             </ul>
             <div class="user_option">
              <!--  <a href="" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a> -->
+              <form action="{{ route('cart') }}" method="get">
+                <button style="background: none; border: none" class="mt-2" type="submit">
+
               <a class="cart_link" href="#">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -122,12 +125,19 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
+            </button>
+          </form>
+              <form class="form-inline" action="{{route('login')}}" method="GET">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </button>
+              </form>
+              <form class="form-inline" action="{{route('search')}}" method="GET">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="" class="order_online">
+              <a href="{{route('products')}}" class="order_online">
                 Order Online
               </a>
             </div>

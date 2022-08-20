@@ -19,15 +19,16 @@ use App\Http\Controllers\PaymentController;
 
 Route::get('/',[ProjectController::class, 'index'])->name('home');
 
-Route::get('/products', function () {
-    return view('products');
-});
+Route::get('/products', [ProjectController::class, 'products'])->name('products');
+
+Route::get('/products/{category}', [ProjectController::class, 'specific_product'])->name('specific_product');
+
 Route::get('/single_product', function () {
     return view('index');
 });
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');
 Route::get('/single_product/{id}',[ProjectController::class, 'single_product'])->name('single_product');
 
 Route::get('/cart',[CartController::class, 'cart'])->name('cart');
@@ -68,4 +69,15 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::get('/user_orders',[ProjectController::class, 'user_orders'])->name('user_orders');
+
+Route::get('/user_order_details/{id}',[ProjectController::class, 'user_order_details'])->name('user_order_details');
+
+Route::get('/search', [ProjectController::class, 'search'])->name('search');
+
+Route::post('/search_result',[ProjectController::class, 'search_result'])->name('search_result');
+Route::get('/search_result', function() {
+    return redirect('/');
 });
