@@ -196,7 +196,7 @@ class CartController extends Controller
             if (Auth::check()) {
 
                 //user logged in
-                $user_id = Auth::id();
+                $user_id = Auth::id(); 
             }else {
                 $user_id = 0;
             }
