@@ -20,9 +20,8 @@
                                 <th>
                                     Menu name: 
                                 </th>
-                                <th>
-                                    Restaurant:
-                                </th>
+                                
+
                                 
                             </tr>
                         </thead>
@@ -32,10 +31,13 @@
                                     <td>
                                         {{$menu->menu_name}}
                                     </td> 
-                                    {{-- <td>
-                                        {{$menus->restaurant->restaurant_name}} 
-                                    </td>
-                                     --}}
+                                    {{-- @foreach ($products as $product)
+                                    @if ($menu->id == $product->menu_id)
+                                    <ul>
+                                   <li> <a class="btn btn-primary btn-lg" href="{{ route('orders.create', $product)}}">Go to see: {{$product->name}}</a></li>
+                                </ul>   
+                                    @endif
+                                    @endforeach --}}
                                     
                                    
                                     <td class="flex">
@@ -51,7 +53,9 @@
                            
                         </tbody>
                     </table>
+
                 </div>
+                @include('orders.create')
             </div>
         </div>
     </div>

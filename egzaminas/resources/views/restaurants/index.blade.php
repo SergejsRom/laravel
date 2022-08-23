@@ -16,7 +16,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if(Auth::user()?->role > 0)
                     <a class="btn btn-primary btn-lg" href="{{ route('restaurants.create') }}">ADD NEW Restaurant</a>
+                    @endif
                     <h2 class="m-2 green fw-bolder">Choose your restaurant</h2>
                     <table class="table table-striped">
                         <thead class="thead-dark">
@@ -46,11 +48,13 @@
                                     </td>
                                     <td class="flex">
                                         <a class="btn btn-success m-1" href="{{ route('restaurants.show', $restaurant) }}">CHOOSE</a>
+                                        @if(Auth::user()?->role > 0)
                                         <a class="btn btn-secondary m-1" href="{{ route('restaurants.edit', $restaurant) }}">EDIT</a>
                                         <form action="{{ route('restaurants.destroy', $restaurant) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger m-1" onclick="return confirm('Ar tikras???')">DELETE</button>
+                                        @endif
                                         </form>
                                     </td>
                                 </tr>

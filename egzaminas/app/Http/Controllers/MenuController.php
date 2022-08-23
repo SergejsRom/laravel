@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMenuRequest;
 use App\Http\Requests\UpdateMenuRequest;
 use App\Models\Menu;
+use App\Models\Product;
 use App\Models\Restaurant;
 
 class MenuController extends Controller
@@ -55,9 +56,12 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
+        //$users = User::all();
+        $products = Product::all();
+        $products->menu_id = $menu->id;
         $menus = Menu::first();
         
-        return view('menus.show', compact('menu'));
+        return view('menus.show', compact('menu', 'products')); 
     }
 
     /**

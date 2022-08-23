@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrdersRequest;
 use App\Http\Requests\UpdateOrdersRequest;
-use App\Models\Orders;
+use App\Models\Order;
+use App\Models\Restaurant;
+use App\Models\Product;
+use App\Models\Menu;
 
-class OrdersController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,12 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+        $products = Product::all();
+        // $countries = Country::all();
+        return view('orders.index', compact('orders', 'products'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +32,11 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        //
+        $restaurants = Restaurant::all();
+        $menus = Menu::all();
+        $users = User::all();
+        $products = Product::all();
+        return view('orders.create', compact('menus', 'restaurants', 'users', 'products'));
     }
 
     /**
@@ -36,7 +47,17 @@ class OrdersController extends Controller
      */
     public function store(StoreOrdersRequest $request)
     {
-        //
+        Order::create([
+            //'restaurant_id' => $request->input('restaurant_id'),
+            'product_id' => $request->input('product_id'),
+            'status' => $request->input('status'),
+            'user_id' => $request->input('user_id')
+
+        ]);
+        
+        
+        return redirect()->route('orders.index');
+
     }
 
     /**
@@ -45,20 +66,25 @@ class OrdersController extends Controller
      * @param  \App\Models\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function show(Orders $orders)
+    public function show(Order $orders)
     {
-        //
+        $order = Order::first();
+        
+        return view('orders.show', ['order' => $order]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Orders  $orders
+     * @param  \App\Models\Order  $orders
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orders $orders)
+    public function edit(Order $orders)
     {
-        //
+        $restaurants = Restaurant::all();
+        $products = Product::all();
+        return view('orders.edit', compact('order', 'restaurants', 'products'));
     }
 
     /**
@@ -68,19 +94,31 @@ class OrdersController extends Controller
      * @param  \App\Models\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrdersRequest $request, Orders $orders)
+    public function update(UpdateOrdersRequest $request, Order $orders)
     {
-        //
+        $order->update([
+            'status' => $request->input('status'),
+            
+        ]);
+        return redirect()->route('all_orders');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Orders  $orders
+     * @param  \App\Models\Order  $orders
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orders $orders)
+    public function destroy(Order $orders)
     {
-        //
+        $order->delete();
+        return redirect()->route('all_orders'); 
+    }
+    public function all_orders()
+    {
+        $orders = Order::all();
+        $restaurants = Restaurant::all();
+        $products = Product::all();
+        return view('all_orders', compact('restaurants', 'orders', 'products'));
     }
 }

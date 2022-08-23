@@ -15,6 +15,14 @@
                     @endif
                     <a class="btn btn-primary btn-lg" href="{{ route('restaurants.create') }}">ADD NEW Restaurant</a>
                     <h2 class="m-2 green fw-bolder">Choose your meal in <span class="red">{{$restaurant->restaurant_name}}</span></h2>
+                    Your menu:
+                    @foreach ($menus as $menu)
+                    @if ($restaurant->id == $menu->restaurant_id)
+                    <ul>
+                   <li> <a class="btn btn-primary btn-lg" href="{{ route('menus.show', $menu)}}">Go to see: {{$menu->menu_name}}</a></li>
+                </ul>   
+                    @endif
+                    @endforeach
                     {{-- @include('orders.create')
                     <table class="table table-striped">
                         <thead class="thead-dark">

@@ -41,11 +41,11 @@
                      My orders
                  </a>
 
-                 {{-- @if(Auth::user()?->role > 0)
+                 @if(Auth::user()?->role > 0)
                 <a class="navbar-brand" href="{{ route('all_orders') }}">
                      All orders
                  </a>
-                 @endif --}}
+                 @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

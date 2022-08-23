@@ -55,10 +55,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Products  $products
+     * @param  \App\Models\Product  $products
      * @return \Illuminate\Http\Response
      */
-    public function show(Products $products)
+    public function show(Product $products)
     {
         $products = Product::first(); 
         
@@ -68,7 +68,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Products  $products
+     * @param  \App\Models\Product  $products
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -82,7 +82,7 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateProductsRequest  $request
-     * @param  \App\Models\Products  $products
+     * @param  \App\Models\Product  $products
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateProductsRequest $request, Product $products)
@@ -102,10 +102,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Products  $products
+     * @param  \App\Models\Product  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $products)
+    public function destroy(Product $product)
     {
         $product->delete();
         return redirect()->route('products.index');

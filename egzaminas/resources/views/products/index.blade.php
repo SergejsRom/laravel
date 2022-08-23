@@ -13,7 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if(Auth::user()?->role > 0)
                     <a class="btn btn-primary btn-lg" href="{{ route('products.create') }}">ADD NEW Product</a>
+                    @endif
                     <table class="table table-striped ">
                         <thead class="thead-dark">
                             <tr>
@@ -30,12 +32,14 @@
                                     </td>
                                     
                                     <td class="flex">
-                                        <a class="btn btn-success m-1" href="{{ route('products.show', $product) }}">SHOW</a>
+                                        {{-- <a class="btn btn-success m-1" href="{{ route('products.show', $product) }}">SHOW</a> --}}
+                                        @if(Auth::user()?->role > 0)
                                         <a class="btn btn-secondary m-1" href="{{ route('products.edit', $product) }}">EDIT</a>
                                         <form action="{{ route('products.destroy', $product) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger m-1" onclick="return confirm('Ar tikras???')">DELETE</button>
+                                        @endif
                                         </form>
                                     </td>
                                 </tr>

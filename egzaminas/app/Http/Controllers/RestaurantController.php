@@ -58,10 +58,10 @@ class RestaurantController extends Controller
     public function show(Restaurant $restaurant)
     {
         $users = User::all();
-    $menus = Menu::all();
-    $menus->restaurant_id = $restaurant->id;
-    $countries = Restaurant::first();
-    
+        $menus = Menu::all();
+        // $restaurants = Restaurant::all();
+        $menus->restaurant_id = $restaurant->id;
+        $restaurants = Restaurant::first();
     
     return view('restaurants.show', compact('restaurant', 'menus'));
 
