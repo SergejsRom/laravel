@@ -21,8 +21,31 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    To Home page
+                 </a>
+                 <a class="navbar-brand" href="{{ route('restaurants.index') }}">
+                     Restaurants list
+                 </a>
+
+                 <a class="navbar-brand" href="{{ route('menus.index') }}">
+                    Menus list
                 </a>
+
+                 <a class="navbar-brand" href="{{ route('products.index') }}">
+                     Products list
+                 </a>
+                 
+                 
+                 
+                 <a class="navbar-brand" href="{{ route('orders.index') }}">
+                     My orders
+                 </a>
+
+                 {{-- @if(Auth::user()?->role > 0)
+                <a class="navbar-brand" href="{{ route('all_orders') }}">
+                     All orders
+                 </a>
+                 @endif --}}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
