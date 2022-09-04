@@ -8,22 +8,22 @@
               Contact Us
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="https://goo.gl/maps/Vb14tRrqZFPvGCXg8" target="_blank">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
                   Location
                 </span>
               </a>
-              <a href="">
+              <a href="tel:+37012345678">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  +370 123 456 78
                 </span>
               </a>
-              <a href="">
+              <a href="mailto:abc@gmail.com">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  abc@gmail.com
                 </span>
               </a>
             </div>
@@ -31,26 +31,26 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
-              calmandcode
+            <a href="#" class="footer-logo">
+              Laravel
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              My first website made with Laravel
             </p>
             <div class="footer_social">
-              <a href="">
+              <a href="http://www.facebook.com">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="http://www.twitter.com">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="http://www.linkedin.com">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="http://www.instagram.com">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="http://www.pinterest.com">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
             </div>
@@ -70,8 +70,7 @@
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a>
+          &copy; <span id="displayYear"></span> All Rights Reserved
         </p>
       </div>
     </div>

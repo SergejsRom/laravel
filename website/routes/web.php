@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController as Product;
+
 
 
 /*
@@ -81,3 +83,5 @@ Route::post('/search_result',[ProjectController::class, 'search_result'])->name(
 Route::get('/search_result', function() {
     return redirect('/');
 });
+
+Route::resource('products_new', Product::class);

@@ -44,7 +44,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{{ route('home') }}">
             <span>
-              My first website made with Lravel
+              Made with Lravel
             </span>
           </a>
 
@@ -62,6 +62,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('about') }}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('products_new.index') }}">Add New MENU</a>
               </li>
             </ul>
             <div class="user_option">
