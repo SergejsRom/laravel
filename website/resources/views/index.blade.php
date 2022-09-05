@@ -92,7 +92,7 @@
         <div class="col-md-6  ">
           <div class="box ">
             <div class="img-box">
-              <img src="{{ asset('/images/o1.jpg')}}" alt="">
+              <img src="{{ asset('/images/o1.jpg')}}" alt="#">
             </div>
             <div class="detail-box">
               <h5>
@@ -123,36 +123,7 @@
                    c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                     </g>
                   </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
+                  
                 </svg>
               </a>
             </div>
@@ -161,7 +132,7 @@
         <div class="col-md-6  ">
           <div class="box ">
             <div class="img-box">
-              <img src="{{ asset('/images/o2.jpg')}}" alt="">
+              <img src="{{ asset('/images/o2.jpg')}}" alt="#">
             </div>
             <div class="detail-box">
               <h5>
@@ -261,7 +232,7 @@
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="{{ asset('images/'.$product->image)}}" alt="">
+                <img src="{{ asset('images/'.$product->image)}}" alt="#">
               </div>
               <div class="detail-box">
                 <h5>
@@ -367,23 +338,21 @@
     <div class="row">
       <div class="col-md-6 ">
         <div class="img-box">
-          <img src="{{ asset('/images/about-img.png')}}" alt="">
+          <img src="{{ asset('/images/about-img.png')}}" alt="#">
         </div>
       </div>
       <div class="col-md-6">
         <div class="detail-box">
           <div class="heading_container">
             <h2>
-              We Are calmandcode
+              My Laravel website
             </h2>
           </div>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-            in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-            are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-            the middle of text. All
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo, exercitationem suscipit natus sunt corrupti quod expedita, nemo, laudantium nisi autem. Odit, rem repudiandae quasi sit aspernatur temporibus porro nam!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus asperiores voluptate recusandae. Sit fugit, labore est porro aliquid, aperiam excepturi accusamus, sequi quas quae error? Praesentium neque eaque culpa rerum.
           </p>
-          <a href="">
+          <a href="{{ route('about') }}">
             Read More
           </a>
         </div>
@@ -480,7 +449,7 @@
               </p>
             </div>
             <div class="img-box">
-              <img src="{{ asset('/images/client1.jpg')}}" alt="" class="box-img">
+              <img src="{{ asset('/images/client1.jpg')}}" alt="#" class="box-img">
             </div>
           </div>
         </div>
@@ -498,7 +467,7 @@
               </p>
             </div>
             <div class="img-box">
-              <img src="{{ asset('/images/client2.jpg')}}" alt="" class="box-img">
+              <img src="{{ asset('/images/client2.jpg')}}" alt="#" class="box-img">
             </div>
           </div>
         </div>

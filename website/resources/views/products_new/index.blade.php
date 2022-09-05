@@ -14,6 +14,7 @@
       <h6 style="color: red">
         This is visible for non logged and without specific role users for demonstration purpose
       </h6>
+      <a class="btn btn-dark btn-lg m-2" href="{{ route('products_new.create') }}">ADD NEW product</a>
     </div>
 
     <div class="filters-content">
@@ -38,6 +39,12 @@
                   <h6>
                     {{$product->price}} EUR
                   </h6>
+                  <a class="btn btn-secondary m-1" href="{{ route('products_new.edit', $product) }}">EDIT</a>
+                  <form action="{{ route('products_new.destroy', $product) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger m-1" onclick="return confirm('Really???')">DELETE</button>
+                  </form>
                   
                 </div>
               </div>
